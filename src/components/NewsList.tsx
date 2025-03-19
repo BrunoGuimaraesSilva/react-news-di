@@ -1,4 +1,3 @@
-// src/ui/components/NewsList.tsx
 import React, { useEffect, useState } from 'react';
 import './NewsList.css';
 import { NewsArticle } from '../domain/models/NewsArticle';

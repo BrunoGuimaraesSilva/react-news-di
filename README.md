@@ -1,25 +1,41 @@
-# News Fetching App
+# 📰 News Application
 
-This is a simple React application that fetches the latest news articles using the [NewsAPI](https://newsapi.org/). It uses modern tools and concepts, including Vite, TypeScript, React Context, and custom services to fetch and display the news.
+A modular and scalable news application built with **React** and **TypeScript**, following a **Clean Architecture** approach with a **simple Dependency Injection (DI)** pattern.
 
-## Table of Contents
+## 📁 Project Structure
 
-- [Tech Stack](#tech-stack)
-- [Project Setup](#project-setup)
-- [File Structure](#file-structure)
-- [How It Works](#how-it-works)
-- [Environment Variables](#environment-variables)
-- [License](#license)
+```
+src/
+├── components/          # UI components
+│   └── NewsList.tsx
+├── domain/              # Core business logic
+│   ├── models/          # Data models
+│   │   └── NewsArticle.ts
+│   ├── repositories/    # Interfaces for data access
+│   │   └── INewsRepository.ts
+│   └── services/        # Business logic services
+│       └── NewsService.ts
+├── infrastructure/      # Implementations and context
+│   ├── context/         # React Context for DI
+│   │   └── NewsServiceContext.tsx
+│   ├── repositories/    # API and data implementations
+│   │   ├── NewsAPIRepository.ts
+│   │   └── NewsDataRepository.ts
+│   └── services/        # Mapping and utility services
+│       └── NewsMappingService.ts
+├── App.tsx              # Main application component
+├── main.tsx             # Entry point
+└── vite.config.ts       # Vite configuration
+```
 
-## Tech Stack
+## 🛠️ Getting Started
 
-- **Vite**: A fast development build tool and bundler.
-- **React**: A JavaScript library for building user interfaces.
-- **TypeScript**: A strongly typed superset of JavaScript.
-- **React Context**: For managing global state across the application.
-- **NewsAPI**: A simple API for fetching news articles.
+### Prerequisites
 
-## Project Setup
+- Node.js (v18+)
+- Yarn (or npm)
+
+### Installation
 
 1. Clone the repository:
 
@@ -28,74 +44,57 @@ This is a simple React application that fetches the latest news articles using t
    cd react-news-di
    ```
 
-2. Install the dependencies:
+2. Install dependencies:
 
    ```bash
-   npm install
+   yarn install
    ```
 
-3. Add your NewsAPI key to a `.env` file in the root of the project:
+### Environment Variables
 
-   ```env
-   VITE_NEWS_API_KEY=your_api_key_here
-   ```
-
-4. Run the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   This will start the app and it will be available at `http://localhost:3000`.
-
-## File Structure
-
-```bash
-.
-├── src/
-│   ├── components/
-│   │   └── NewsList.tsx
-│   ├── contexts/
-│   │   └── NewsServiceContext.tsx
-│   ├── services/
-│   │   ├── NewsAPIService.ts
-│   │   └── NewsService.ts
-│   ├── App.tsx
-│   ├── main.tsx
-├── tsconfig.json
-├── vite.config.ts
-├── .env
-└── package.json
-```
-
-## How It Works
-
-1. **Services**: 
-   - `NewsService` is an interface that defines a method to fetch news.
-   - `NewsAPIService` is a class that implements `NewsService` and fetches the latest news using the [NewsAPI](https://newsapi.org/).
-
-2. **Context**: 
-   - `NewsServiceContext` provides the `NewsService` instance to the rest of the app. The `useNewsService` hook allows components to access this service.
-
-3. **NewsList Component**:
-   - The `NewsList` component fetches and displays the news articles. It uses the `useNewsService` hook to get the news service and fetch the data.
-
-4. **App Component**:
-   - The `App` component wraps the `NewsList` component in a `NewsServiceProvider`, passing an instance of `NewsAPIService` as the `service` prop.
-
-5. **Main Entry**:
-   - The `main.tsx` file renders the `App` component inside a `React.StrictMode` wrapper.
-
-## Environment Variables
-
-To run the application, you will need to create a `.env` file at the root of the project. The file should contain the following:
+Create a `.env` file in the root directory and add the following:
 
 ```env
 VITE_NEWS_API_KEY=your_api_key_here
+VITE_NEWS_DATA_KEY=your_data_key_here
 ```
 
-You can get your API key from [NewsAPI](https://newsapi.org/).
+### Running the Application
 
-## License
+Start the development server:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```bash
+yarn dev
+```
+
+### Building for Production
+
+```bash
+yarn build
+```
+
+## 📐 Architecture Overview
+
+The project is designed following **Clean Architecture** principles and implements a **simple Dependency Injection (DI)** mechanism using React Context. This allows for better modularity, separation of concerns, and easier testing.
+
+### Layers Breakdown
+
+- **Domain Layer**: Contains core business logic (models, interfaces, and services).
+- **Infrastructure Layer**: Handles external integrations (API implementations, context, mapping services).
+- **Component Layer**: Contains UI components to present data.
+
+### Dependency Injection (DI)
+
+We use **React Context** to manage and inject dependencies. This promotes loose coupling and makes testing and future modifications easier.
+
+Example Flow:
+
+1. **Interface Definition**: `INewsRepository` defines the contract for data access.
+2. **Implementation**: `NewsAPIRepository` and `NewsDataRepository` provide concrete implementations.
+3. **Service Layer**: `NewsService` handles business logic by relying on repository interfaces.
+4. **Context Provider**: `NewsServiceContext.tsx` provides dependencies to React components via context.
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
