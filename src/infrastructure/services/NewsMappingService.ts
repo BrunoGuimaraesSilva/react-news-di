@@ -1,4 +1,4 @@
-import { NewsArticle } from "../../domain/services/NewsService";
+import { NewsArticle } from "../../domain/models/NewsArticle";
 
 interface RawArticle {
   source: {

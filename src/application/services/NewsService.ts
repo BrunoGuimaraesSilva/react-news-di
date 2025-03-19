@@ -1,4 +1,3 @@
-// src/application/services/NewsService.ts
 import { INewsRepository } from '../../domain/repositories/INewsRepository';
 import { NewsArticle } from '../../domain/models/NewsArticle';
 
