@@ -24,8 +24,8 @@ This is a simple React application that fetches the latest news articles using t
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/BrunoGuimaraesSilva/react-news-di.git
+   cd react-news-di
    ```
 
 2. Install the dependencies:
