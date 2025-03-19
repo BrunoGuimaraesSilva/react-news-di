@@ -1,6 +1,3 @@
-Sure! Here's the complete `README.md` file for your project:
-
-```md
 # News Fetching App
 
 This is a simple React application that fetches the latest news articles using the [NewsAPI](https://newsapi.org/). It uses modern tools and concepts, including Vite, TypeScript, React Context, and custom services to fetch and display the news.
@@ -27,8 +24,8 @@ This is a simple React application that fetches the latest news articles using t
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/BrunoGuimaraesSilva/react-news-di.git
+   cd react-news-di
    ```
 
 2. Install the dependencies:
@@ -102,6 +99,3 @@ You can get your API key from [NewsAPI](https://newsapi.org/).
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-You can now copy this text into your `README.md` file.
