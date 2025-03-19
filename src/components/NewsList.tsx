@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useNewsService } from '../context/NewsServiceContext';
-import "./NewsList.css"
-import { NewsArticle } from '../services/NewsService';
+// src/ui/components/NewsList.tsx
+import React, { useEffect, useState } from 'react';
+import './NewsList.css';
+import { NewsArticle } from '../domain/models/NewsArticle';
+import { useNewsService } from '../infrastructure/context/NewsServiceContext';
 
 export const NewsList = () => {
   const newsService = useNewsService();
@@ -46,7 +47,7 @@ export const NewsList = () => {
       {articles.map((article, index) => (
         <div key={index} className="news-card">
           <a href={article.url} target="_blank" rel="noopener noreferrer">
-            <img className='news-image' src={article.urlToImage}/>
+            <img className='news-image' src={article.urlToImage} alt={article.title} />
             <h3 className="news-title">{article.title}</h3>
           </a>
         </div>
